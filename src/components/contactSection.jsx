@@ -33,18 +33,6 @@ export function ContactSection({ country }) {
 
   return (
     <section id="contact" style={{ padding: "80px 0" }}>
-      <form
-        name="contact"
-        netlify
-        netlify-honeypot="bot-field"
-        hidden
-        style={{ display: "none" }}
-      >
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="subject" />
-        <textarea name="message"></textarea>
-      </form>
       <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 20px" }}>
         <h2
           style={{
