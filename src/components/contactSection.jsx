@@ -21,6 +21,11 @@ export function ContactSection({ country }) {
       if (response.ok) {
         setShowModal(true);
         formElement.reset(); // Clear the form
+
+        // Hide the modal after 5 seconds
+        setTimeout(() => {
+          setShowModal(false);
+        }, 5000);
       } else {
         alert("There was an error sending your message. Please try again.");
       }
@@ -50,28 +55,25 @@ export function ContactSection({ country }) {
           name="contact"
           method="POST"
           onSubmit={handleSubmit}
-          className="space-y-4"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
           style={{ display: "flex", flexDirection: "column", gap: "20px" }}
         >
           {/* Required for Netlify */}
           <input type="hidden" name="form-name" value="contact" />
 
-          {/* Honeypot for spam protection */}
-          <p className="hidden">
+          {/* Honeypot */}
+          <p hidden>
             <label>
-              Don't fill this out if you're human:
-              <input name="bot-field" />
+              Don’t fill this out: <input name="bot-field" />
             </label>
           </p>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>
-              Name:
-            </label>
+            <label style={{ display: "block", marginBottom: "8px" }}>Name:</label>
             <input
               type="text"
               name="name"
-              placeholder="Your name"
               required
               style={{
                 width: "100%",
@@ -83,13 +85,10 @@ export function ContactSection({ country }) {
           </div>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>
-              Email:
-            </label>
+            <label style={{ display: "block", marginBottom: "8px" }}>Email:</label>
             <input
               type="email"
               name="email"
-              placeholder="your.email@example.com"
               required
               style={{
                 width: "100%",
@@ -101,13 +100,10 @@ export function ContactSection({ country }) {
           </div>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>
-              Subject:
-            </label>
+            <label style={{ display: "block", marginBottom: "8px" }}>Subject:</label>
             <input
               type="text"
               name="subject"
-              placeholder="What's this about?"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -118,12 +114,9 @@ export function ContactSection({ country }) {
           </div>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>
-              Message:
-            </label>
+            <label style={{ display: "block", marginBottom: "8px" }}>Message:</label>
             <textarea
               name="message"
-              placeholder="Explain your query in detail"
               required
               style={{
                 width: "100%",
@@ -161,6 +154,7 @@ export function ContactSection({ country }) {
               border: "1px solid #4ade80",
               borderRadius: "6px",
               textAlign: "center",
+              transition: "opacity 0.3s ease",
             }}
           >
             ✅ Thank you! Your message has been sent.
