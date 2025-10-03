@@ -44,7 +44,7 @@ export function AboutSection() {
           {/* Left Content */}{" "}
           <div className="space-y-6">
             {" "}
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1e3a8a]">
+            <h2 className="text-4xl md:text-5xl font-bold text-black">
               About Us
             </h2>{" "}
             <p className="text-lg text-gray-700 leading-relaxed">
@@ -78,9 +78,9 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex-1 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border-2 border-transparent hover:border-[#ffc64a]"
+                className="flex-1 bg-[#ffc64a] rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border-2 border-transparent hover:border-[#ffc64a]"
               >
-                <h3 className="text-xl font-bold mb-2 text-[#1e3a8a]">
+                <h3 className="text-xl font-bold mb-2 text-black">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">

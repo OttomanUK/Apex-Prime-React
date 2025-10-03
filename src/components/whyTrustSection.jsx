@@ -67,7 +67,7 @@ export function WhyTrustSection({ country }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} // animate only the first time
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="bg-white rounded-xl p-8 border border-[#1a1f2e] hover:border-[#ffb91f] hover:shadow-lg transition-all duration-300"
+                className="bg-[#cbd0ff] rounded-xl p-8 border border-[#1a1f2e] hover:border-[#ffb91f] hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 rounded-full bg-[#ffc64a] flex items-center justify-center">
