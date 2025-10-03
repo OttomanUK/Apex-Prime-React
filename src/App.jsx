@@ -67,8 +67,8 @@ export default function Home() {
 
       {selectedCountry && (
         <div
-          key={selectedCountry} // force re-render when country changes
-          className={`min-h-screen transition-opacity duration-300 ${
+          key={selectedCountry}
+          className={`min-h-screen transition-opacity duration-300 overflow-x-hidden ${
             isTransitioning ? "opacity-0" : "opacity-100"
           } ${selectedCountry === "usa" ? "theme-usa" : "theme-pakistan"}`}
         >
