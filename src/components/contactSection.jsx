@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 export function ContactSection({ country }) {
@@ -20,12 +21,9 @@ export function ContactSection({ country }) {
 
       if (response.ok) {
         setShowModal(true);
-        formElement.reset(); // Clear the form
+        formElement.reset();
 
-        // Hide the modal after 5 seconds
-        setTimeout(() => {
-          setShowModal(false);
-        }, 5000);
+        setTimeout(() => setShowModal(false), 5000);
       } else {
         alert("There was an error sending your message. Please try again.");
       }
@@ -37,17 +35,15 @@ export function ContactSection({ country }) {
   };
 
   return (
-    <section id="contact" style={{ padding: "80px 0" }}>
-      <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 20px" }}>
-        <h2
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: "bold",
-            marginBottom: "20px",
-            textAlign: "center",
-            color: "#1e3a8a",
-          }}
-        >
+    <section id="contact" className="py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2.4, ease: "easeOut" }}
+        className="max-w-4xl mx-auto px-4"
+      >
+        <h2 className="text-4xl font-bold mb-6 text-center text-[#1e3a8a]">
           Contact Us
         </h2>
 
@@ -57,12 +53,9 @@ export function ContactSection({ country }) {
           onSubmit={handleSubmit}
           data-netlify="true"
           netlify-honeypot="bot-field"
-          style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+          className="flex flex-col gap-6"
         >
-          {/* Required for Netlify */}
           <input type="hidden" name="form-name" value="contact" />
-
-          {/* Honeypot */}
           <p hidden>
             <label>
               Don’t fill this out: <input name="bot-field" />
@@ -70,97 +63,58 @@ export function ContactSection({ country }) {
           </p>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>Name:</label>
+            <label className="block mb-2">Name:</label>
             <input
               type="text"
               name="name"
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-              }}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition"
             />
           </div>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>Email:</label>
+            <label className="block mb-2">Email:</label>
             <input
               type="email"
               name="email"
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-              }}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition"
             />
           </div>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>Subject:</label>
+            <label className="block mb-2">Subject:</label>
             <input
               type="text"
               name="subject"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-              }}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition"
             />
           </div>
 
           <div>
-            <label style={{ display: "block", marginBottom: "8px" }}>Message:</label>
+            <label className="block mb-2">Message:</label>
             <textarea
               name="message"
               required
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                minHeight: "120px",
-              }}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md min-h-[120px] focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            style={{
-              padding: "12px 20px",
-              backgroundColor: "#1e3a8a",
-              color: "white",
-              border: "none",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
+            className="px-6 py-3 bg-[#ffb91f] rounded-md text-[#152d6a] font-bold hover:bg-[#152d6a] hover:text-white transition"
           >
             {isSubmitting ? "Sending Email..." : "Send Email"}
           </button>
         </form>
 
-        {/* Confirmation Modal */}
         {showModal && (
-          <div
-            style={{
-              marginTop: "20px",
-              padding: "15px",
-              backgroundColor: "#e6ffed",
-              border: "1px solid #4ade80",
-              borderRadius: "6px",
-              textAlign: "center",
-              transition: "opacity 0.3s ease",
-            }}
-          >
+          <div className="mt-6 p-4 bg-green-50 border border-green-400 rounded-md text-center text-green-700">
             ✅ Thank you! Your message has been sent.
           </div>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 }

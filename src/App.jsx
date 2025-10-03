@@ -14,6 +14,7 @@ export default function Home() {
   const [selectedCountry, setSelectedCountry] = useState("usa");
   const [showModal, setShowModal] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -23,39 +24,53 @@ export default function Home() {
       setSelectedCountry(savedCountry);
     }
 
-    // always show modal, regardless of saved value
+    // always show modal
     setShowModal(true);
   }, []);
 
+  const triggerTransition = (callback) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      callback();
+      setIsTransitioning(false);
+    }, 300); // match transition duration
+  };
+
   const handleCountrySelect = (country) => {
-    setSelectedCountry(country);
-    if (isClient) {
-      window.localStorage.setItem("selectedCountry", country);
-    }
-    setShowModal(false);
+    triggerTransition(() => {
+      setSelectedCountry(country);
+      if (isClient) {
+        window.localStorage.setItem("selectedCountry", country);
+      }
+      setShowModal(false);
+    });
   };
 
   const handleCountryChange = (country) => {
-    setSelectedCountry(country);
-    if (isClient) {
-      window.localStorage.setItem("selectedCountry", country);
-    }
+    triggerTransition(() => {
+      setSelectedCountry(country);
+      if (isClient) {
+        window.localStorage.setItem("selectedCountry", country);
+      }
+    });
   };
 
-  // Don't render anything until client-side hydration is complete
-  if (!isClient) {
-    return null;
-  }
+  if (!isClient) return null;
 
   return (
     <>
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"></div>
+      )}
+
       <CountryModal isOpen={showModal} onSelect={handleCountrySelect} />
 
       {selectedCountry && (
         <div
-          className={`min-h-screen ${
-            selectedCountry === "usa" ? "theme-usa" : "theme-pakistan"
-          }`}
+          key={selectedCountry} // force re-render when country changes
+          className={`min-h-screen transition-opacity duration-300 ${
+            isTransitioning ? "opacity-0" : "opacity-100"
+          } ${selectedCountry === "usa" ? "theme-usa" : "theme-pakistan"}`}
         >
           <Navigation
             selectedCountry={selectedCountry}

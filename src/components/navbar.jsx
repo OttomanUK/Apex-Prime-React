@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Globe, Menu, X } from "lucide-react";
 import logo from "../pictures/logo.png";
@@ -46,7 +45,7 @@ export function Navigation({ selectedCountry, onCountryChange }) {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md">
+    <nav className="sticky top-0 z-50 bg-[#1a1f2e] text-white  shadow-md">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -55,10 +54,10 @@ export function Navigation({ selectedCountry, onCountryChange }) {
               <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="hidden sm:block">
-              <div className="font-bold text-lg leading-tight text-[#1e3a8a]">
+              <div className="font-bold text-lg leading-tight text-white">
                 APEX PRIME SERVICES
               </div>
-              <div className="text-xs text-gray-600">
+              <div className="text-xs text-[#ffc64a]">
                 Where Expertise Meets Trust
               </div>
             </div>
@@ -70,11 +69,7 @@ export function Navigation({ selectedCountry, onCountryChange }) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 font-medium transition-colors hover:opacity-80 hover:cursor-pointer"
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--accent-primary)")
-                }
-                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                className="text-white font-medium transition-colors hover:opacity-80 hover:cursor-pointer hover:text-[#ffc64a]"
               >
                 {item.label}
               </button>
@@ -84,23 +79,23 @@ export function Navigation({ selectedCountry, onCountryChange }) {
             <div className="relative country-dropdown">
               <button
                 onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
-                className="flex items-center gap-2 px-3 py-2 border bg-[#ffc64a] text-black font-bold border-gray-300 rounded-md hover:bg-[#1a1f2e] hover:text-white transition-colors"
+                className="flex items-center gap-2 px-3 py-2 border bg-[#ffc64a] text-black font-bold border-gray-300 rounded-md hover:bg-white hover:text-black transition-colors"
               >
                 <Globe className="w-4 h-4" />
                 {selectedCountry === "usa" ? "🇺🇸 USA" : "🇵🇰 Pakistan"}
               </button>
 
               {countryDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg overflow-hidden z-50">
+                <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg overflow-hidden z-50 text-black">
                   <button
                     onClick={() => handleCountrySelect("usa")}
-                    className="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                    className="w-full text-left px-4 py-2 hover:bg-[#1a1f2e] hover:text-white flex items-center gap-2"
                   >
                     🇺🇸 USA
                   </button>
                   <button
                     onClick={() => handleCountrySelect("pakistan")}
-                    className="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
+                    className="w-full text-left px-4 py-2 hover:bg-[#1a1f2e] hover:text-white  flex items-center gap-2"
                   >
                     🇵🇰 Pakistan
                   </button>
@@ -122,10 +117,10 @@ export function Navigation({ selectedCountry, onCountryChange }) {
               </button>
 
               {mobileCountryDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg overflow-hidden z-50">
+                <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg overflow-hidden z-50 text-black">
                   <button
                     onClick={() => handleCountrySelect("usa")}
-                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                    className="w-full text-left px-4 py-2 hover:bg-[#1a1f2e] hover:text-white"
                   >
                     🇺🇸 USA
                   </button>
@@ -141,7 +136,7 @@ export function Navigation({ selectedCountry, onCountryChange }) {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 hover:bg-gray-100 rounded-md"
+              className="p-2 hover:bg-gray-100 rounded-md "
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -154,16 +149,12 @@ export function Navigation({ selectedCountry, onCountryChange }) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="md:hidden py-4 border-t border-gray-700 bg-[#1a1f2e]">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--accent-primary)")
-                }
-                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                className="block w-full text-left px-4 py-2 text-white hover:text-[#ffc64a] hover:bg-[#1a1f2e] transition-colors"
               >
                 {item.label}
               </button>
@@ -174,4 +165,3 @@ export function Navigation({ selectedCountry, onCountryChange }) {
     </nav>
   );
 }
-

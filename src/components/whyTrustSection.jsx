@@ -1,5 +1,6 @@
 import React from "react";
 import { Shield, CheckCircle, Star, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function WhyTrustSection({ country }) {
   const features = [
@@ -60,8 +61,12 @@ export function WhyTrustSection({ country }) {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} // animate only the first time
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="bg-white rounded-xl p-8 border border-[#1a1f2e] hover:border-[#ffb91f] hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex justify-center mb-6">
@@ -75,7 +80,7 @@ export function WhyTrustSection({ country }) {
                 <p className="text-gray-600 text-center leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

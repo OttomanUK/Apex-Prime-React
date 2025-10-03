@@ -1,4 +1,3 @@
-
 import {
   FileText,
   DollarSign,
@@ -8,6 +7,7 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 import payroll from "../pictures/payroll.jpg";
+import { motion } from "framer-motion";
 
 export function ServicesSection({ country }) {
   const usaServices = [
@@ -137,8 +137,12 @@ export function ServicesSection({ country }) {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} // animate only the first time
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow border border-[#1a1f2e] hover:border-[#ffb91f]"
               >
                 <div className="flex justify-center mb-6">
@@ -149,7 +153,7 @@ export function ServicesSection({ country }) {
                 <p className="text-gray-800 text-center leading-relaxed font-medium">
                   {service.title}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

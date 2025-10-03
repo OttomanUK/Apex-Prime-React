@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Award, Target, Users } from "lucide-react";
 
 export function AboutSection({ country }) {
@@ -46,8 +47,12 @@ export function AboutSection({ country }) {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
                   className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-[#1a1f2e] hover:border-[#ffb91f]"
                 >
                   <div className="flex items-start gap-6">
@@ -63,7 +68,7 @@ export function AboutSection({ country }) {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
