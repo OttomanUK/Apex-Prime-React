@@ -70,8 +70,8 @@ export function WhyTrustSection({ country }) {
                 className="bg-white rounded-xl p-8 border border-[#1a1f2e] hover:border-[#ffb91f] hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-[#fffae3] flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-[#ffc64a]" />
+                  <div className="w-16 h-16 rounded-full bg-[#ffc64a] flex items-center justify-center">
+                    <Icon className="w-8 h-8 text-[#000000]" />
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900 text-center">

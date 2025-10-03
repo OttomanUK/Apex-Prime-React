@@ -1,15 +1,15 @@
-
 import React from "react";
 import logo from "../pictures/logo.png";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const footerData = {
-  usa: {
-    companyName: "Apex Prime Services L.L.C",
+  company: {
+    companyName: "Apex Prime Services",
     tagline: "Where Expertise Meets Trust",
     description: "Professional accounting services you can trust.",
     phone: "516-205-4013",
     email: "info@apexprimeservices.com",
-    address: "412 PLAINVIEW ROAD HICKSVILLE NY 11801",
+    address: "412 Plainview Road Hicksville NY 11801",
     services: [
       "Accounting & Bookkeeping",
       "Financial Consulting",
@@ -18,26 +18,10 @@ const footerData = {
     ],
     copyright: "© 2025 Apex Prime Services L.L.C. All rights reserved.",
   },
-  pakistan: {
-    companyName: "Apex Prime Services Pakistan",
-    tagline: "Where Expertise Meets Trust",
-    description: "Professional accounting services you can trust.",
-    phone: "+92 336 176 1666 | +92 334 189 1301",
-    email: "Info@apexprimeservices.com",
-    address:
-      "406, 4th Floor Panorama Center, Building Number 2, Raja Ghazanfer Ali Khan Road, Saddar, Karachi",
-    services: [
-      "Accounting & Bookkeeping",
-      "Financial Consulting",
-      "Tax Filing & Compliance",
-      "Business Advisory",
-    ],
-    copyright: "© 2025 Apex Prime Services Pakistan. All rights reserved.",
-  },
 };
 
-export function Footer({ country }) {
-  const data = footerData[country];
+export function Footer() {
+  const data = footerData.company;
 
   return (
     <footer className="bg-[#1a1f2e] text-white py-12">
@@ -60,10 +44,16 @@ export function Footer({ country }) {
           {/* Contact Info */}
           <div>
             <h3 className="font-bold text-lg mb-4">Contact</h3>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>{data.phone}</p>
-              <p>{data.email}</p>
-              <p className="text-gray-400">{data.address}</p>
+            <div className="space-y-3 text-sm text-gray-300">
+              <p className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-[#ffc64a]" /> {data.phone}
+              </p>
+              <p className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-[#ffc64a]" /> {data.email}
+              </p>
+              <p className="flex items-center gap-2 text-gray-400">
+                <MapPin className="h-4 w-4 text-[#ffc64a]" /> {data.address}
+              </p>
             </div>
           </div>
 
@@ -86,4 +76,3 @@ export function Footer({ country }) {
     </footer>
   );
 }
-

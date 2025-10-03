@@ -1,14 +1,11 @@
-import React from "react";
 import video from "../videos/newVideo.mp4";
 
-export function HeroSection({ country }) {
-  const companyName =
-    country === "usa"
-      ? "APEX PRIME SERVICES L.L.C"
-      : "APEX PRIME SERVICES PAKISTAN";
-
+export function HeroSection() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -26,7 +23,7 @@ export function HeroSection({ country }) {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         {/* Company Name */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 tracking-wide">
-          {companyName}
+          APEX PRIME SERVICES
         </h1>
 
         {/* Tagline */}

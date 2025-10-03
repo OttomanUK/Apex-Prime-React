@@ -1,76 +1,93 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Award, Target, Users } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
-export function AboutSection({ country }) {
-  const usaContent =
-    "Apex Prime Services is a trusted accounting firm dedicated to helping businesses and individuals manage their finances with confidence. We specialize in accounting, bookkeeping, and financial consulting, delivering accurate and reliable solutions tailored to your needs. Our focus is on professionalism, transparency, and long-term client success.";
-
-  const pakistanContent =
-    "Apex Prime Services Pakistan is a trusted accounting firm dedicated to helping businesses and individuals manage their finances with confidence. We specialize in accounting, bookkeeping, and financial consulting, delivering accurate and reliable solutions tailored to your needs. Our focus is on professionalism, transparency, and long-term client success.";
-
+export function AboutSection() {
   const features = [
     {
-      icon: Award,
       title: "Expertise",
       description:
         "Years of experience in delivering professional accounting services",
     },
     {
-      icon: Target,
       title: "Precision",
       description: "Accurate and detailed financial reporting you can trust",
     },
     {
-      icon: Users,
       title: "Client-Focused",
       description:
         "Customized solutions designed for your unique business needs",
     },
   ];
 
-  return (
-    <section id="about" className="py-20 md:py-28 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
-          {/* Left Content - 40% */}
-          <div className="lg:col-span-2">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1e3a8a]">
-              About Us
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              {country === "usa" ? usaContent : pakistanContent}
-            </p>
-          </div>
+  const domains = [
+    "Accounting, Bookkeeping, Auditing, Finance, Taxation",
+    "Financial controls, financial planning and analysis",
+    "Statutory financial reporting as per IFRS and GAAP, Financial statements",
+    "Management reporting and Board presentations, Dashboards",
+    "Budgeting, forecasting, defining and monitoring KPIs",
+    "Financial modeling, financial feasibilities",
+    "Corporate governance, internal controls, process re-engineering",
+    "System implementations",
+    "Receivable and debtors' management, collection follow-ups",
+    "Vendors and payable management, supply chain management",
+    "Treasury, and cash flow management",
+  ];
 
-          {/* Right Content - 60% */}
-          <div className="lg:col-span-3 space-y-6">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-[#1a1f2e] hover:border-[#ffb91f]"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 rounded-full flex items-center bg-[#fffae3] justify-center flex-shrink-0">
-                      <Icon className="w-7 h-7 text-[#ffc64a]" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2 text-gray-900">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+  return (
+    <section id="about" className="py-16 md:py-20 bg-[#cbd0ff]">
+      {" "}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {" "}
+        <div className="grid lg:grid-cols-[1.2fr,1fr] gap-12 lg:gap-16 items-start">
+          {/* Left Content */}{" "}
+          <div className="space-y-6">
+            {" "}
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1e3a8a]">
+              About Us
+            </h2>{" "}
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Apex Prime Services is a trusted accounting firm dedicated to
+              helping businesses and individuals manage their finances with
+              confidence. We provide remote outsourced services globally in accounting,
+              bookkeeping, taxation, payroll, internal audit, and related areas,
+              delivering both quality and cost efficiency to our clients.{" "}
+            </p>{" "}
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Our team comprises professionals with over 20 years of experience
+              across the following domains:{" "}
+            </p>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mt-6">
+              {domains.map((domain, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-black mt-1 flex-shrink-0" />
+                  <span className="text-gray-700 leading-relaxed text-base">
+                    {domain}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Right Content */}
+          <div className="flex flex-col justify-between space-y-5 h-full">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex-1 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border-2 border-transparent hover:border-[#ffc64a]"
+              >
+                <h3 className="text-xl font-bold mb-2 text-[#1e3a8a]">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
