@@ -70,7 +70,7 @@ export function ContactSection() {
               type="text"
               name="name"
               required
-              className="w-full px-4 py-3 border border-black rounded-md focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
+              className="w-full px-4 py-3 border border-black rounded-md focus:border-[#1e3a8a] focus:border-2 focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
             />
           </div>
 
@@ -83,7 +83,7 @@ export function ContactSection() {
               type="email"
               name="email"
               required
-              className="w-full px-4 py-3 border border-black rounded-md focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
+              className="w-full px-4 py-3 border border-black rounded-mdf focus:border-[#1e3a8a] focus:border-2 focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
             />
           </div>
 
@@ -95,7 +95,7 @@ export function ContactSection() {
             <input
               type="text"
               name="subject"
-              className="w-full px-4 py-3 border border-black rounded-md focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
+              className="w-full px-4 py-3 border border-black rounded-md focus:border-[#1e3a8a] focus:border-2 focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
             />
           </div>
 
@@ -107,7 +107,7 @@ export function ContactSection() {
             <textarea
               name="message"
               required
-              className="w-full px-4 py-3 border border-black rounded-md min-h-[140px] sm:min-h-[160px] focus:border-[#ffb91f] focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
+              className="w-full px-4 py-3 border border-black rounded-md min-h-[140px] sm:min-h-[160px] focus:border-[#1e3a8a] focus:border-2 focus:ring focus:ring-[#ffb91f]/40 outline-none transition text-sm sm:text-base"
             />
           </div>
 

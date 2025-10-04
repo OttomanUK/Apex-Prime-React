@@ -154,14 +154,14 @@ export function ServicesSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="bg-[#cbd0ff] rounded-xl p-8 border border-[#1a1f2e] hover:border-[#ffb91f] hover:shadow-lg transition-all duration-300"
+                  className="bg-[#325EAB] rounded-xl p-8 border border-[#1a1f2e] hover:border-[#ffb91f] hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex justify-center mb-6">
                     <div className="w-14 h-14 bg-[#ffc64a] rounded-lg flex items-center justify-center shadow-sm">
                       <Icon className="w-7 h-7 text-[#000000]" />
                     </div>
                   </div>
-                  <p className="text-black text-center leading-relaxed font-medium">
+                  <p className="text-white text-center leading-relaxed font-medium">
                     {service.title}
                   </p>
                 </motion.div>
