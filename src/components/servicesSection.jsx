@@ -114,18 +114,37 @@ export function ServicesSection() {
 
   return (
     <section id="services" className="py-20 md:py-28 bg-white">
-      {" "}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {" "}
+        {/* Heading */}
         <div className="text-center mb-10">
           <h2
             className="text-4xl md:text-5xl font-bold mb-6"
             style={{ color: "var(--accent-primary)" }}
           >
-            Our Services{" "}
+            Our Services
           </h2>
+        </div>
 
-          {/* Country Filter */}
+        {/* Intro Paragraph */}
+        <div className="max-w-7xl mx-auto mb-12 text-gray-700 text-lg leading-relaxed">
+          <p className="mb-4">
+            Apex Prime Services L.L.C proudly serves clients across the United
+            States, United Kingdom, the United Arab Emirates (Dubai), and
+            Pakistan, delivering expert accounting and financial solutions
+            tailored to both businesses and individuals. We specialize in remote
+            and outsourced services that embody transparency, reliability, and
+            cost efficiency. With a strong international presence built on
+            customized, scalable, and trustworthy solutions, we help clients
+            achieve sustainable, long-term success backed by over 20 years of
+            collective expertise.
+          </p>
+        </div>
+
+        {/* Subtitle + Country Filter */}
+        <div className="text-center mb-4">
+          <p className="text-gray-600 mb-4">
+            Select a country below to view the tailored services we provide
+          </p>
           <div className="flex justify-center gap-4">
             {["usa", "pakistan", "uae"].map((c) => (
               <button
@@ -142,8 +161,9 @@ export function ServicesSection() {
             ))}
           </div>
         </div>
-        {/* Services Grid with Animation */}
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        {/* Services Grid */}
+        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           <AnimatePresence mode="wait">
             {services.map((service, index) => {
               const Icon = service.icon;

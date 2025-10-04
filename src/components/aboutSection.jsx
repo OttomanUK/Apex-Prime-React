@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
+
 export function AboutSection() {
   const features = [
     {
@@ -47,7 +48,7 @@ export function AboutSection() {
             <h2 className="text-4xl md:text-5xl font-bold text-black">
               About Us
             </h2>{" "}
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-950 leading-relaxed">
               Apex Prime Services is a trusted accounting firm dedicated to
               helping businesses and individuals manage their finances with
               confidence. We provide remote outsourced services globally in accounting,
@@ -62,7 +63,7 @@ export function AboutSection() {
               {domains.map((domain, index) => (
                 <li key={index} className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-black mt-1 flex-shrink-0" />
-                  <span className="text-gray-700 leading-relaxed text-base">
+                  <span className="text-gray-950 leading-relaxed text-base">
                     {domain}
                   </span>
                 </li>

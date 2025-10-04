@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 const footerData = {
   company: {
-    companyName: "Apex Prime Services",
+    companyName: "Apex Prime Services L.L.C",
     tagline: "Where Expertise Meets Trust",
     description: "Professional accounting services you can trust.",
     phone: "516-205-4013",

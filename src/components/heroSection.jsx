@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         {/* Company Name */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 tracking-wide">
-          APEX PRIME SERVICES
+          APEX PRIME SERVICES L.L.C
         </h1>
 
         {/* Tagline */}
