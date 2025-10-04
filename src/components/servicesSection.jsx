@@ -128,9 +128,9 @@ export function ServicesSection() {
         {/* Intro Paragraph */}
         <div className="max-w-7xl mx-auto mb-12 text-gray-700 text-lg leading-relaxed">
           <p className="mb-4">
-            Apex Prime Services L.L.C proudly serves clients across the United
+            Apex Prime Services L.L.C proudly serves clients across the <span className="text-[#325EAB] font-bold"> United
             States, United Kingdom, the United Arab Emirates, and
-            Pakistan, delivering expert accounting and financial solutions
+            Pakistan</span>, delivering expert accounting and financial solutions
             tailored to both businesses and individuals. We specialize in remote
             and outsourced services that embody transparency, reliability, and
             cost efficiency. With a strong international presence built on
