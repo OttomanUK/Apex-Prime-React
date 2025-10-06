@@ -7,9 +7,18 @@ const footerData = {
     companyName: "Apex Prime Services L.L.C",
     tagline: "Where Expertise Meets Trust",
     description: "Professional accounting services you can trust.",
-    phone: "516-205-4013",
     email: "info@apexprimeservices.com",
-    address: "412 Plainview Road Hicksville NY 11801",
+    contacts: {
+      usa: {
+        phone: "516-205-4013",
+        address: "412 Plainview Road Hicksville NY 11801",
+      },
+      pakistan: {
+        phone: "+92 336 176 1666 , +92 334 189 1301",
+        address:
+          "406, 4th Floor Panorama Center, Building Number 2, Raja Ghazanfer Ali Khan Road, Saddar, Karachi.",
+      },
+    },
     services: [
       "Accounting & Bookkeeping",
       "Financial Consulting",
@@ -43,17 +52,48 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact</h3>
-            <div className="space-y-3 text-sm text-gray-300">
+            <h3 className="font-bold text-lg">Contact</h3>
+            <div className="mb-2">
               <p className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-[#ffc64a]" /> {data.phone}
+                <Mail className="h-8 w-4 text-[#ffc64a]" /> {data.email}
               </p>
-              <p className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[#ffc64a]" /> {data.email}
-              </p>
-              <p className="flex items-center gap-2 text-gray-400">
-                <MapPin className="h-4 w-4 text-[#ffc64a]" /> {data.address}
-              </p>
+            </div>
+            <div className="space-y-4 text-sm text-gray-300">
+              {/* USA Contact */}
+              <div>
+                <h4 className="font-semibold text-white pb-2">USA</h4>
+                <p className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-[#ffc64a]" />{" "}
+                  {data.contacts.usa.phone}
+                </p>
+                <div className="flex flex-row">
+                  <p className="flex items-center gap-2 text-gray-400">
+                    <MapPin className="h-4 w-4 text-[#ffc64a]" />{" "}
+                  </p>
+                  <p className="pt-3 pl-2 text-gray-400">
+                    {" "}
+                    {data.contacts.usa.address}
+                  </p>
+                </div>
+              </div>
+
+              {/* Pakistan Contact */}
+              <div>
+                <h4 className="font-semibold text-white pb-2">Pakistan</h4>
+                <p className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-[#ffc64a]" />{" "}
+                  {data.contacts.pakistan.phone}
+                </p>
+                <div className="flex flex-row">
+                  <p className="flex items-center gap-2 text-gray-400">
+                    <MapPin className="h-4 w-4 text-[#ffc64a]" />{" "}
+                  </p>
+                  <p className="pt-3 pl-2 text-gray-400">
+                    {" "}
+                    {data.contacts.pakistan.address}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

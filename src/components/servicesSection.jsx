@@ -19,6 +19,7 @@ import {
   PieChart,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import GlobalCarousel from "./countryCarousel";
 
 export function ServicesSection() {
   const [country, setCountry] = useState("usa");
@@ -82,35 +83,7 @@ export function ServicesSection() {
     },
   ];
 
-  const uaeServices = [
-    {
-      icon: FileText,
-      title:
-        "Complete accounting service from chart of account to ledger, trial balance and final accounts, as preparation of financial statements",
-    },
-    {
-      icon: PieChart,
-      title: "Budgeting, forecasting and projected financial statements",
-    },
-    {
-      icon: FileCheck,
-      title: "Internal and external financial audit, financial reporting",
-    },
-    {
-      icon: Banknote,
-      title:
-        "Banking services, operational banking from account opening to obtaining credit limits like L/C, LG. Long term and short-term financing and export re-financing",
-    },
-    { icon: Building2, title: "Registration of all types" },
-    { icon: Landmark, title: "Filing of VAT/Corporate Tax Returns" },
-  ];
-
-  const services =
-    country === "usa"
-      ? usaServices
-      : country === "pakistan"
-      ? pakistanServices
-      : uaeServices;
+  const services = country === "usa" ? usaServices : pakistanServices;
 
   return (
     <section id="services" className="py-20 md:py-28 bg-white">
@@ -128,25 +101,32 @@ export function ServicesSection() {
         {/* Intro Paragraph */}
         <div className="max-w-7xl mx-auto mb-12 text-gray-700 text-lg leading-relaxed">
           <p className="mb-4">
-            Apex Prime Services L.L.C proudly serves clients across the <span className="text-[#325EAB] font-bold"> United
-            States, United Kingdom, the United Arab Emirates, and
-            Pakistan</span>, delivering expert accounting and financial solutions
-            tailored to both businesses and individuals. We specialize in remote
-            and outsourced services that embody transparency, reliability, and
-            cost efficiency. With a strong international presence built on
+            Apex Prime Services L.L.C proudly serves clients across the{" "}
+            <span className="text-[#325EAB] font-bold">
+              {" "}
+              United States, United Kingdom, the United Arab Emirates, and
+              Pakistan
+            </span>
+            , delivering expert accounting and financial solutions tailored to
+            both businesses and individuals. We specialize in remote and
+            outsourced services that embody transparency, reliability, and cost
+            efficiency. With a strong international presence built on
             customized, scalable, and trustworthy solutions, we help clients
             achieve sustainable, long-term success backed by over 20 years of
             collective expertise.
           </p>
         </div>
 
+        <GlobalCarousel />
+
         {/* Subtitle + Country Filter */}
-        <div className="text-center mb-4">
-          <p className="text-gray-600 mb-4">
-            Select a country below to view the tailored services we provide
+        {/* Subtitle + Country Filter */}
+        <div className="text-center mb-6">
+          <p className="text-gray-800 mb-4 text-2xl md:text-3xl font-semibold">
+            Services for Each Market
           </p>
           <div className="flex justify-center gap-4">
-            {["usa", "pakistan", "uae"].map((c) => (
+            {["usa", "pakistan"].map((c) => (
               <button
                 key={c}
                 onClick={() => setCountry(c)}
@@ -156,14 +136,20 @@ export function ServicesSection() {
                     : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                 }`}
               >
-                {c.toUpperCase()}
+                {c === "usa"
+                  ? c.toUpperCase()
+                  : c === "pakistan"
+                  ? c.charAt(0).toUpperCase() + c.slice(1).toLowerCase()
+                  : c}
               </button>
             ))}
           </div>
         </div>
-
         {/* Services Grid */}
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <motion.div
+          layout
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"
+        >
           <AnimatePresence mode="wait">
             {services.map((service, index) => {
               const Icon = service.icon;
