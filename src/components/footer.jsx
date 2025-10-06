@@ -39,7 +39,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 flex items-center justify-center">
+              <div className="w-10 h-10 flex lg:items-center lg:justify-center md:items-start md:justify-start">
                 <img src={logo} alt="Logo" className="w-full h-auto" />
               </div>
               <div>

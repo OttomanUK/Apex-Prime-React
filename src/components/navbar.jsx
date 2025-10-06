@@ -8,18 +8,25 @@ import logo from "../pictures/logo.png";
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMenuOpen(false);
-  };
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    const offset = 80; // adjust this based on your header height (e.g., 70–90px)
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+  setIsMenuOpen(false);
+};
 
   const navItems = [
     { label: "Home", id: "hero" },
-    { label: "Services", id: "services" },
     { label: "About Us", id: "about" },
+    { label: "Services", id: "services" },
     { label: "Why Trust Us", id: "why-trust" },
     { label: "Contact", id: "contact" },
   ];

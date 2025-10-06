@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -126,6 +128,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Added country-specific color themes */
