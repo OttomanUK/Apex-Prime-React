@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
-
 export function AboutSection() {
   const features = [
     {
@@ -40,20 +39,20 @@ export function AboutSection() {
     <section id="about" className="py-16 md:py-15 bg-white">
       {" "}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <h2 className="text-4xl md:text-5xl text-center font-bold text-black pb-6">
-              About Us
-            </h2>
-        {" "}
+        <h2 className="text-4xl md:text-5xl text-center font-bold text-black pb-6">
+          About Us
+        </h2>{" "}
         <div className="grid lg:grid-cols-[1.2fr,1fr] gap-12 lg:gap-16 items-start">
           {/* Left Content */}{" "}
           <div className="space-y-6 text-center lg:text-left">
-            {" "}{" "}
+            {" "}
             <p className="text-lg text-gray-950 leading-relaxed">
               Apex Prime Services is a trusted accounting firm dedicated to
               helping businesses and individuals manage their finances with
-              confidence. We provide remote outsourced services globally in accounting,
-              bookkeeping, taxation, payroll entries, internal audit, and related areas,
-              delivering both quality and cost efficiency to our clients.{" "}
+              confidence. We provide remote outsourced services globally in
+              accounting, bookkeeping, taxation, payroll entries, internal
+              audit, and related areas, delivering both quality and cost
+              efficiency to our clients.{" "}
             </p>{" "}
             <p className="text-lg text-gray-700 leading-relaxed">
               Our team comprises professionals with over 20 years of experience
